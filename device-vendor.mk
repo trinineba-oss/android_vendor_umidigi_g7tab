@@ -1,6 +1,6 @@
-# PQ HIDL compat — expose 2.14 from 2.15 service
+# VINTF compat for GSI boot
 DEVICE_MANIFEST_FILE += \
-    vendor/umidigi/g7tab/proprietary/vendor/etc/vintf/manifest_pq_compat.xml
+    vendor/umidigi/g7tab/proprietary/vendor/etc/vintf/manifest_compat.xml
 
 PRODUCT_COPY_FILES += \
     vendor/umidigi/g7tab/proprietary/vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc \
