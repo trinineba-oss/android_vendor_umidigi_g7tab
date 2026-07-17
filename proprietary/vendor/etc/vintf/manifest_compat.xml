@@ -1,6 +1,160 @@
 <manifest version="1.0" type="device">
 
-    <!-- PQ: service runs 2.0-2.15 but manifest only declares 2.15 -->
+    <!-- ═══════════════════════════════════════════════
+         AOSP HALs: running on device but missing from
+         or wrong version in vendor manifest.xml
+         ═══════════════════════════════════════════════ -->
+
+    <!-- boot@1.2: device has VAB, manifest only had @1.0 -->
+    <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IBootControl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.2::IBootControl/default</fqname>
+    </hal>
+
+    <!-- bluetooth@1.1: service pid 1106 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IBluetoothHci/default</fqname>
+    </hal>
+
+    <!-- bluetooth.audio@2.1: requested by audioserver pid 1944 -->
+    <hal format="hidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IBluetoothAudioProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+
+    <!-- audio@6.0+7.0/default: audioserver pid 1944 requests default instance -->
+    <hal format="hidl">
+        <name>android.hardware.audio</name>
+        <transport>hwbinder</transport>
+        <version>7.0</version>
+        <interface>
+            <name>IDevicesFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@7.0::IDevicesFactory/default</fqname>
+    </hal>
+
+    <!-- audio.effect@6.0+7.0: requested by audioserver pid 1944 -->
+    <hal format="hidl">
+        <name>android.hardware.audio.effect</name>
+        <transport>hwbinder</transport>
+        <version>7.0</version>
+        <interface>
+            <name>IEffectsFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@7.0::IEffectsFactory/default</fqname>
+    </hal>
+
+    <!-- camera.provider@2.6: service pid 1427 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <version>2.6</version>
+        <interface>
+            <name>ICameraProvider</name>
+            <instance>internal/0</instance>
+        </interface>
+        <fqname>@2.6::ICameraProvider/internal/0</fqname>
+    </hal>
+
+    <!-- gatekeeper@1.0: service pid 1121 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+
+    <!-- gnss@2.1: service pid 1122 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IGnss/default</fqname>
+    </hal>
+
+    <!-- graphics.allocator@4.0: service pid 1123 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.graphics.allocator</name>
+        <transport>hwbinder</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@4.0::IAllocator/default</fqname>
+    </hal>
+
+    <!-- health@2.1: service pid 1127 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IHealth</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IHealth/default</fqname>
+    </hal>
+
+    <!-- soundtrigger@2.3: requested by audioserver pid 1944 -->
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <version>2.3</version>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+
+    <!-- thermal@2.0: service pid 1136 running but undeclared -->
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IThermal/default</fqname>
+    </hal>
+
+    <!-- ═══════════════════════════════════════════════
+         MediaTek vendor HALs: running but missing from
+         or wrong version in vendor manifest.xml
+         ═══════════════════════════════════════════════ -->
+
+    <!-- pq: service runs 2.0-2.15, manifest only declared 2.15 -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.pq</name>
         <transport>hwbinder</transport>
@@ -14,7 +168,7 @@
         <fqname>@2.15::IPictureQuality/default</fqname>
     </hal>
 
-    <!-- mtkpower: 1.0 and 1.1 running but missing from manifest -->
+    <!-- mtkpower: 1.0 and 1.1 running, manifest only had 1.2 -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.mtkpower</name>
         <transport>hwbinder</transport>
@@ -34,7 +188,7 @@
         <fqname>@1.1::IMtkPower/default</fqname>
     </hal>
 
-    <!-- nvram: 1.0 running but missing from manifest -->
+    <!-- nvram: 1.0 running, manifest only had 1.1 -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.nvram</name>
         <transport>hwbinder</transport>
@@ -46,7 +200,7 @@
         <fqname>@1.0::INvram/default</fqname>
     </hal>
 
-    <!-- apuware: completely missing from manifest -->
+    <!-- apuware: completely absent from manifest -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.apuware.apusys</name>
         <transport>hwbinder</transport>
@@ -82,26 +236,23 @@
         <fqname>@2.0::IApuwareUtils/default</fqname>
     </hal>
 
-    <!-- lbs: completely missing from manifest -->
+    <!-- lbs: completely absent from manifest -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.lbs</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>ILbs</name>
-            <instance>AgpsDebugInterface</instance>
             <instance>AgpsInterface</instance>
             <instance>mtk_agps2framework</instance>
             <instance>mtk_framework2agps</instance>
-            <instance>mtk_lbs_log_v2s</instance>
-            <instance>mtk_mnld2debugService</instance>
         </interface>
         <fqname>@1.0::ILbs/AgpsInterface</fqname>
         <fqname>@1.0::ILbs/mtk_agps2framework</fqname>
         <fqname>@1.0::ILbs/mtk_framework2agps</fqname>
     </hal>
 
-    <!-- camera.bgservice: 1.0 running but manifest only has 1.1 -->
+    <!-- camera.bgservice: 1.0 running, manifest only had 1.1 -->
     <hal format="hidl">
         <name>vendor.mediatek.hardware.camera.bgservice</name>
         <transport>hwbinder</transport>
@@ -114,64 +265,3 @@
     </hal>
 
 </manifest>
-
-    <!-- boot: device has VAB so needs 1.2, manifest only has 1.0 -->
-    <hal format="hidl">
-        <name>android.hardware.boot</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>IBootControl</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.2::IBootControl/default</fqname>
-    </hal>
-
-    <!-- gnss: running pid 1122 but not in manifest -->
-    <hal format="hidl">
-        <name>android.hardware.gnss</name>
-        <transport>hwbinder</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IGnss</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.1::IGnss/default</fqname>
-    </hal>
-
-    <!-- camera.provider: running pid 1427 but manifest missing 2.6 -->
-    <hal format="hidl">
-        <name>android.hardware.camera.provider</name>
-        <transport>hwbinder</transport>
-        <version>2.6</version>
-        <interface>
-            <name>ICameraProvider</name>
-            <instance>internal/0</instance>
-        </interface>
-        <fqname>@2.6::ICameraProvider/internal/0</fqname>
-    </hal>
-
-    <!-- audio: sysbta running 2.0-7.1 but default instance undeclared -->
-    <hal format="hidl">
-        <name>android.hardware.audio</name>
-        <transport>hwbinder</transport>
-        <version>7.0</version>
-        <interface>
-            <name>IDevicesFactory</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@7.0::IDevicesFactory/default</fqname>
-    </hal>
-
-    <!-- audio.effect: requested but undeclared -->
-    <hal format="hidl">
-        <name>android.hardware.audio.effect</name>
-        <transport>hwbinder</transport>
-        <version>7.0</version>
-        <interface>
-            <name>IEffectsFactory</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@7.0::IEffectsFactory/default</fqname>
-    </hal>
-
