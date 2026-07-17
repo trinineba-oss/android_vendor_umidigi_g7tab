@@ -1,0 +1,9 @@
+# Build artifacts
+*.pyc
+*.swp
+.DS_Store
+
+# Extracted system images
+*.img
+*.raw
+*.bin.bak

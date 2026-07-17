@@ -1,1 +1,0 @@
-$(call inherit-product, vendor/umidigi/g7tab/device-vendor.mk)
