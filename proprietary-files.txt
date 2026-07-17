@@ -1,0 +1,8 @@
+# PQ HAL - implementation
+vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so
+vendor/lib/hw/vendor.mediatek.hardware.pq@2.15-impl.so
+# PQ HAL - interface libs
+vendor/lib64/vendor.mediatek.hardware.pq@2.14.so
+vendor/lib64/vendor.mediatek.hardware.pq@2.15.so
+vendor/lib/vendor.mediatek.hardware.pq@2.14.so
+vendor/lib/vendor.mediatek.hardware.pq@2.15.so
