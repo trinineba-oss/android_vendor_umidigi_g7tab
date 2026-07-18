@@ -1,0 +1,6 @@
+id=pq_compat_vintf
+name=G7 Tab Pro HAL VINTF Compat
+version=v5
+versionCode=5
+author=trinineba-oss
+description=Fixes missing HAL VINTF for GSI compat on UMIDIGI G7 Tab Pro MT6789. Bind mounts manifest fragment directory to add pq@2.14, mtkpower@1.0/1.1, nvram@1.0, camera.bgservice@1.0.
