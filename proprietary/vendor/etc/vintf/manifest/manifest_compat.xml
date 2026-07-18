@@ -60,3 +60,12 @@
     </hal>
 
 </manifest>
+
+    <!-- graphics.allocator AIDL: GSI servicemanager requests this -->
+    <hal format="aidl">
+        <name>android.hardware.graphics.allocator</name>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
