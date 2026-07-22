@@ -1,6 +1,9 @@
 # Generated vendor blob copy list for UMIDIGI G7 Tab Pro
 # 1997 files from stock alps-mp-s0.mp1-V15.0.2
 
+PRODUCT_PACKAGES += \
+    g7tabpro_vendor_symlinks
+
 DEVICE_MANIFEST_FILE += \
     vendor/umidigi/g7tabpro/proprietary/vendor/etc/vintf/manifest/manifest_compat.xml
 
